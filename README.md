@@ -1,2 +1,2 @@
-# branding-assets
+# Token Engineering Branding Assets
 TEC Branding assets. Logo, Mockups, Avatars, Banners, Graphics and other.
