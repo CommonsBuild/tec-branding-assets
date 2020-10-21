@@ -1,0 +1,646 @@
+---
+layout: default
+---
+{%
+
+capture url_root
+  %}{% if site.safe == false %}/{% else %}/inter/{% endif
+%}{%
+endcapture %}{%
+
+for file in site.static_files %}{%
+  assign _path = file.path | remove_first: "/inter" %}{%
+  if _path == "/index.css" %}{%
+    assign index_css_v = file.modified_time | date: "%Y%m%d%H%M%S" %}{%
+  elsif _path == "/index-var.css" %}{%
+    assign index_var_css_v = file.modified_time | date: "%Y%m%d%H%M%S" %}{%
+  elsif _path == "/index-var.js" %}{%
+    assign index_var_js_v = file.modified_time | date: "%Y%m%d%H%M%S" %}{%
+  endif %}{%
+endfor
+
+%}
+<link rel="stylesheet" href="index.css?v={{ index_css_v }}">
+<link rel="stylesheet" href="index-var.css?v={{ index_var_css_v }}">
+<input type="text" id="hidden-text-input">
+
+<div class="row"><div>
+  <h1>The Inter UI font family</h1>
+  <p>
+  Inter UI is a typeface specially designed for user interfaces
+  with focus on high legibility of small-to-medium sized text on computer screens.
+  </p>
+  <p>
+  The family features a tall x-height to aid in readability of mixed-case and
+  lower-case text. Several OpenType features are provided as well,
+  like contextual alternates that adjusts punctuation depending on the shape of
+  surrounding glyphs, slashed zero for when you need to disambiguate "0" from "o",
+  tabular numbers, etc.
+  </p>
+</div></div>
+
+<div class="row white" style="padding-bottom:0"><div>
+  <p id="samples" class="samples items sample-images">
+    <a href="samples/" class="plain"><img src="samples/img/01.png" srcset="samples/img/01@2x.png 2x" width="888"></a>
+  </p>
+  <p style="text-align:center">
+    <a href="samples/" class="plain">More samples -></a>
+    <br><br>
+  </p>
+</div></div>
+
+<div class="row dark"><div>
+
+  <h2><a id="usage" href="#usage">How do I use it?</a></h2>
+  <p>
+    Using the font is as easy as
+    <a class="download-link" href="https://github.com/rsms/inter/releases/latest/">download &amp; installing</a> locally on your computer.
+  </p>
+  <p>
+    You're free to bundle copies of Inter UI with your software, even if it's
+    commercial and you charge money for your software. Inter UI can also be used
+    on the web by either hosting the font files yourself or by including this CSS:
+  </p>
+  <pre>@import url('https://rsms.me/inter/inter-ui.css');
+html { font-family: 'Inter UI', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter UI var alt', sans-serif; }
+}</pre>
+
+  <p>&nbsp;</p>
+
+  <h2 id="dynamic-metrics"><a href="{{url_root}}dynmetrics/">Dynamic Metrics</a></h2>
+  <p class="dynmet-calc">
+    Size
+    <input id="dynmet-font-size" type="number" value="12"
+    ><span title='Display points — "px" in CSS, "pt" on iOS, "sp" on Android, and "pt" (1/72 of an inch) in print'>dp</span>
+    <span class="arrow">=</span>
+    <span title='letter-spacing in CSS; also called "tracking" in some software.'>spacing
+    <input id="dynmet-tracking" type="number" value="0.008">
+    <span id="dynmet-unit">em</span>
+  </p>
+  <p>
+    There's of course no absolute right or wrong when it comes to expressing yourself with typography, but Inter UI <em>Dynamic Metrics</em> provides guidelines for good typography. You simply provide the optical font size, and the tracking and leading is calculated for you to produce the best results.
+  </p>
+  <p>
+    <a href="{{url_root}}dynmetrics/">Learn more…</a>
+  </p>
+
+  <p>&nbsp;</p>
+
+  <h2><a id="free" href="#free">How much does it cost?</a></h2>
+  <p>
+    Inter UI is a <a href="https://github.com/rsms/inter">free and open source</a> font family.<br>
+    You are free to use this font in almost any way imaginable.<br>
+    Refer to the <a href="https://choosealicense.com/licenses/ofl-1.1/">SIL Open Font License 1.1</a> for exact details on what the conditions and restrictions are.
+  </p>
+
+</div></div>
+
+<div class="row"><div>
+  <h2><a id="weights" href="#weights">Weights & Styles</a></h2>
+  <p>
+  There are six weights, each with italic counterparts,
+  making a total of 12 styles.
+  </p>
+  <img src="res/weights-and-styles.svg" style="opacity:0.88;width:100%;display:block;margin:3em 0 3em 0">
+</div></div>
+
+
+
+<div class="row white variable"><div>
+  <h2><a id="variable" href="#variable">Variable</a></h2>
+
+  <p>
+  Inter UI is offered as both traditional constant font files
+  (one per style, e.g. Bold Italic, Medium, etc.) as well as a
+  <a href="https://en.wikipedia.org/wiki/Variable_fonts">Variable Font</a>
+  file which contains all styles in a much smaller file size.
+  Additionally, a variable font is ...variable! You can mix and match weight
+  and italic angle as you please, forming theoretically infinite variations.
+  </p>
+
+  <div class="unsupported-message">
+    <p>Variable Fonts not supported by this web browser</p>
+  </div>
+
+  <div class="ctrl">
+    <div class="ctrlrow">
+      <label title="Weight in the range of 400 to 900">
+        <span class="label var">Weight:</span>
+        <input type="range" value="400" min="400" max="900" name="weight">
+      </label>
+      <label title="Slant angle in the range of 0° to 10°">
+        <span class="label var">Slant:</span>
+        <input type="range" value="0" min="0" max="10" step="0.01" name="slant">
+      </label>
+      <label class="tight">
+        <input type="checkbox" name="animate"> Animate weight &amp; slant
+      </label>
+      <label class="tight">
+        <input type="checkbox" name="invert"> Negative
+      </label>
+    </div>
+    <div class="ctrlrow">
+      <label title="Font size">
+        <span class="label">Size:</span>
+        <input type="range" value="96" min="11" max="400" name="size">
+      </label>
+      <label title="Space between letters">
+        <span class="label">Tracking:</span>
+        <input type="range" value="0" min="-0.1" max="0.1" step="0.001" name="letterSpacing">
+      </label>
+      <label>
+        <span class="label">Line height:</span>
+        <input type="range" value="1.2" min="0.7" max="2" step="0.01" name="lineHeight">
+      </label>
+    </div>
+  </div>
+</div></div>
+<div class="row white variable-sample-row">
+  <div class="variable-sample" contenteditable>
+  ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890
+  ?!()[]{}&*^%$#@~
+  </div>
+</div>
+<script src="index-var.js?v={{ index_var_js_v }}"></script>
+<div class="row white"><div>
+  <p>
+    Variable fonts is a new technology and support is somewhat in flux at
+    the time of writing this (fall 2018.)
+    <a href="var-test.html">This test</a> can be used to discover
+    what a web browser is capable of.
+  </p>
+</div></div>
+
+
+
+<div class="row"><div>
+  <h2><a id="features" href="#features">Features</a></h2>
+  <p>
+    Inter UI comes with many OpenType features that can be used to
+    tailor functionality and aesthetics to your specific needs.
+    Some of these features can be combined to form a great number of
+    alternative variations.
+  </p>
+  <boxes class="features">
+    <box>
+      <h3>Contextual alternates <q title='OpenType feature ID'>calt</q></h3>
+      <p>
+        This feature is enabled by default and causes certain characters to
+        adjust themselves or be replaced depending on the surrounding context.
+      </p>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>12<em>:</em>34,  FE<em>—</em>X</in><to></to><out>12:34,  FE—X</out></r>
+        <r><in>4<em>.</em>2</in><to></to><out>4.2</out></r>
+        <r><in><em>(</em>SEMI<em>)</em>PERMANENT</in><to></to><out>(SEMI)PERMANENT</out></r>
+        <r><in>SFO <em>-></em> STO</in><to></to><out>SFO -> STO</out></r>
+        <r><in>IIA <em>—></em> OGG</in><to></to><out>IIA —> OGG</out></r>
+        <r><in>ARN <em><--></em> OGG</in><to></to><out>ARN <--> OGG</out></r>
+        <r><in>M<em>@</em>N m@n</in><to></to><out>M@N m@n</out></r>
+        <r><in>Smile <em>:-)</em></in><to></to><out>Smile :-)</out></r>
+      </t></tablex>
+      <p>
+        There are many more contextual alternates.
+      </p>
+    </box>
+
+    <box>
+      <h3>Tabular numbers <q title='OpenType feature ID'>tnum</q></h3>
+      <p>
+        Fixed-width numbers are useful for tabular data, where comparing
+        columns across rows is desired.
+      </p>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>1234567890</in><to></to><out class="tnum">1234567890</out></r>
+        <r><in>1131711<em>&nbsp;</em></in><to></to><out class="tnum">1131711<em>&nbsp;</em></out></r>
+        <r><in>0040900<em>&nbsp;</em></in><to></to><out class="tnum">0040900<em>&nbsp;</em></out></r>
+        <r><in>11:31,711<em>&nbsp;</em></in><to></to><out class="tnum">11:31,711<em>&nbsp;</em></out></r>
+        <r><in>00:40.900<em>&nbsp;</em></in><to></to><out class="tnum">00:40.900<em>&nbsp;</em></out></r>
+        <r><in>0.45, 0.91, +0.08<em>&nbsp;</em></in><to></to><out class="tnum">0.45, 0.91, +0.08<em>&nbsp;</em></out></r>
+        <r><in>1.00, 9.44, −0.13<em>&nbsp;</em></in><to></to><out class="tnum">1.00, 9.44, −0.13<em>&nbsp;</em></out></r>
+        <r><in>0.00, 1.13, ~7.12<em>&nbsp;</em></in><to></to><out class="tnum">0.00, 1.13, ~7.12<em>&nbsp;</em></out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Numerators <q title='OpenType feature ID'>numr</q></h3>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>Hello <em>0123</em></in><to></to><out class="numr">Hello 0123</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Denominators <q title='OpenType feature ID'>dnom</q></h3>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>Hello <em>0123</em></in><to></to><out class="dnom">Hello 0123</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Superscript <q title='OpenType feature ID'>sups</q></h3>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>H<em>ello 0123</em></in><to></to><out class="sups">Hello 0123</out></r>
+        <r><in><em>abcdefghijklm</em></in><to></to><out class="sups">abcdefghijklm</out></r>
+        <r><in><em>nopqrstuvwxyz</em></in><to></to><out class="sups">nopqrstuvwxyz</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Subscript <q title='OpenType feature ID'>subs</q></h3>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>H<em>ello 0123</em></in><to></to><out class="subs">Hello 0123</out></r>
+        <r><in><em>abcdefghijklm</em></in><to></to><out class="subs">abcdefghijklm</out></r>
+        <r><in><em>nopqrstuvwxyz</em></in><to></to><out class="subs">nopqrstuvwxyz</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Fractions <q title='OpenType feature ID'>frac</q></h3>
+      <p>
+        This feature is contextually sensitive and will convert "words" of
+        numbers separated by forward slash into proper fractions.
+        This feature is dynamic and allows for any fractions.
+        Note that the digits used for fractions are custom-made for their
+        small size, and are even made separately from the slightly larger
+        Superscript and Subscript numbers.
+      </p>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r>
+          <in><em>1/3</em>  <em>3/4</em>  <em>1/5</em>  <em>1337/5910</em></in>
+          <to></to><out class="frac">1/3  3/4  1/5  1337/5910</out>
+        </r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Case alternates <q title='OpenType feature ID'>case</q></h3>
+      <p>
+        Switches out some glyphs to work better with capital letters and numbers.
+      </p>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r>
+          <in><em>(</em>Hello<em>)</em> <em>[</em>World<em>]</em> <em>{</em>9000<em>}</em></in>
+          <to></to><out class="case">(Hello) [World] {9000}</out>
+        </r>
+        <r><in>SCHOOL <em>@</em> RUN</in><to></to><out class="case">SCHOOL @ RUN</out></r>
+        <r><in>3 <em>+</em> 9 <em>=</em> 12 <em>*</em> 1</in><to></to><out class="case">3 + 9 = 12 * 1</out></r>
+        <r><in><em>*+÷±×=≠≈•~&lt;&gt;≤≥</em></in><to></to><out class="case">*+÷±×=≠≈•~&lt;&gt;≤≥</out></r>
+        <r><in><em>→</em> <em>←</em> <em>⟶</em> <em>⟵</em> <em>−</em> <em>-</em> <em>–</em> <em>—</em> <em>:</em></in><to></to><out class="case">→ ← ⟶ ⟵ − - – — :</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Stylistic set 1: Alternate digits <q title='OpenType feature ID'>ss01</q></h3>
+      <p>
+        An alternate style of digits.
+        Note that individual digit styles can be cherry-picked using the cvXX
+        features.
+      </p>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r>
+          <in><em>1</em>2<em>34</em>5<em>6</em>78<em>9</em>0</in>
+          <to></to><out class="ss01">1234567890</out>
+        </r>
+        <r><in><em>13469</em></in><to></to><out class="ss01">13469</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Stylistic set 2: Disambiguation <q title='OpenType feature ID'>ss02</q></h3>
+      <p>
+        Alternate glyph set that increases visual difference between similar-looking characters.
+      </p>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>WP<em>0</em>AC2A9XS<em>I</em>1<em>0</em>12O9</in><to></to><out class="ss02">WP0AC2A9XSI1012O9</out></r>
+        <r><in><em>Ill</em>ega<em>l</em></in><to></to><out class="ss02">Illegal</out></r>
+        <r><in>βeta <em>ß</em>eta Busine<em>ß</em></in><to></to><out class="ss02">βeta ßeta Busineß</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Discretionary ligatures <q title='OpenType feature ID'>dlig</q></h3>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in><em>¡¿</em>What<em>?!</em></in><to></to><out class="dlig">¡¿What?!</out></r>
+        <r><in><em>¿¡</em>What<em>!?</em></in><to></to><out class="dlig">¿¡What!?</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Slashed zero <q title='OpenType feature ID'>zero</q></h3>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in><em>0</em>123</in><to></to><out class="zero">0123</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Character variants <q title='OpenType feature ID'>cvXX</q></h3>
+      <p>
+        Allows cherry-picking alternate characters.
+      </p>
+      <tablex><t>
+        <h><name>Feature&nbsp;&nbsp;</name><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r title="Alternate one"><name>cv01</name><in>1</in><to></to><out class="cv01">1</out></r>
+        <r title="Open four"><name>cv02</name><in>4</in><to></to><out class="cv02">4</out></r>
+        <r title="Open six"><name>cv03</name><in>6</in><to></to><out class="cv03">6</out></r>
+        <r title="Open nine"><name>cv04</name><in>9</in><to></to><out class="cv04">9</out></r>
+        <r title="Lower case L with tail"><name>cv05</name><in>l ł ƚ ɫ ɬ ŀ ĺ ļ ľ ḷ ḹ ḻ ḽ</in><to></to><out class="cv05">l ł ƚ ɫ ɬ ŀ ĺ ļ ľ ḷ ḹ ḻ ḽ</out></r>
+        <r title="Lower case R with straight tail"><name>cv06</name><in>r ɽ ɍ ɼ ŕ ŗ ř ȑ ȓ ṙ ṛ ṝ ṟ</in><to></to><out class="cv06">r ɽ ɍ ɼ ŕ ŗ ř ȑ ȓ ṙ ṛ ṝ ṟ</out></r>
+        <r title="Alternate German double-s"><name>cv07</name><in>ß</in><to></to><out class="cv07">ß</out></r>
+        <r title="Upper-case i with serif"><name>cv08</name><in>I Ï Ḯ Ɨ Ḭ Ì Í Î Ĩ Ī Ĭ<br>Į İ Ǐ Ȉ Ȋ Ỉ Ị Ι Ί Ϊ Ἰ Ἱ Ἲ<br>Ἳ Ἴ Ἵ Ἶ Ἷ Ῐ Ῑ Ὶ Ί І Ї</in><to></to><out class="cv08">I Ï Ḯ Ɨ Ḭ Ì Í Î Ĩ Ī Ĭ<br>Į İ Ǐ Ȉ Ȋ Ỉ Ị Ι Ί Ϊ Ἰ Ἱ Ἲ<br>Ἳ Ἴ Ἵ Ἶ Ἷ Ῐ Ῑ Ὶ Ί І Ї</out></r>
+        <r title="Flat top three"><name>cv09</name><in>3</in><to></to><out class="cv09">3</out></r>
+      </t></tablex>
+    </box>
+
+    <box>
+      <h3>Capital Spacing <q title='OpenType feature ID'>cpsp</q></h3>
+      <p>
+        Slightly increases letter spacing for increased legibility of
+        capital letters. Note: It's usually better to set letter-spacing
+        (aka tracking) manually instead of using this feature. It's here
+        mainly for completeness.
+      </p>
+      <tablex><t>
+        <h><in>Disabled</in><to></to><out>Enabled</out></h>
+        <r><in>FOREVER IMMATERIAL</in><to></to><out class="cpsp">FOREVER IMMATERIAL</out></r>
+        <r><in>TORSCHLUẞPANIK</in><to></to><out class="cpsp">TORSCHLUẞPANIK</out></r>
+      </t></tablex>
+    </box>
+
+  </boxes>
+
+  <p>
+    Additional features, not highlighted above:
+    <q title='OpenType feature ID'>locl</q>,
+    <q title='OpenType feature ID'>aalt</q>,
+    <q title='OpenType feature ID'>ccmp</q>,
+    <q title='OpenType feature ID'>ordn</q> and
+    <q title='OpenType feature ID'>salt</q>,
+  </p>
+
+  <p>&nbsp;</p>
+
+  <h2 class="banner"><a href="glyphs/">Browse all glyphs -></a></h2>
+</div></div>
+
+<div class="row-divider"></div>
+
+<div class="row"><div>
+  <h2><a id="story" href="#story">The story behind Inter UI</a></h2>
+  <p>
+  Inter UI started out in late 2016 as an experiment to build a perfectly
+  pixel-fitting font at a specific small size (11px.) The idea was that
+  by crafting a font in a particular way, with a particular coordinate system
+  (Units Per EM), and for a particular target rasterization size (11), it would
+  be possible to get the best of both sharpness and readability.
+  </p>
+  <p>
+  However after a few months of using an early version of Inter UI, it dawned
+  on everyone exposed to the test that this approach had some serious real-world
+  problems. Most notably that it was really hard to read longer text. Because of
+  the pixel-aligning nature of that approach, the font took an almost
+  <a href="https://www.figma.com/file/HPqDViSCB8fAWuxaV2ousFMv">mono-spaced appearance</a>,
+  making it really easy to read numbers, punctuation and very short
+  words, but eye-straining to read anything longer.
+  </p>
+  <p>
+  The project was rebooted with a different approach, sticking with the
+  specific UPM, but crafting glyphs and kerning in a way that made for
+  more variation in the rhythm and smoother vertical and horizontal stems.
+  As Inter UI was being developed, it was tested on an internal version of
+  <a href="https://www.figma.com/">Figma</a>—where the author of Inter UI works as a designer—and slowly improved upon based on experience and feedback.
+  </p>
+
+  <p>&nbsp;</p>
+
+  <h2><a id="faq" href="#faq">FAQ</a></h2>
+  <ul class="faq">
+
+    <li class="q" id="faq-using-features">
+      How do I enable and disable font features?
+    </li>
+    <li class="a">
+      In web browsers you'll want to use
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings"><q>font-feature-settings</q></a>.
+      In Figma you can access features via the
+      <a href="https://help.figma.com/text/opentype-features">Advanced Typography panel.</a>
+      In Illustrator, Photoshop and friends, you can access features via the
+      <a href="https://helpx.adobe.com/illustrator/using/special-characters.html#opentype_panel_overview">Characters and OpenType panels.</a>
+      Sketch doesn't provide a UI for configuring font features, but there's
+      <a href="https://sketchtalk.io/discussion/comment/1478/#Comment_1478">a workaround using macOS's native font UI.</a>
+    </li>
+
+    <li class="q" id="faq-unhinted-vs-hinted">
+      What is the difference between "unhinted" and "hinted" font files?
+    </li>
+    <li class="a">
+      The font files in the "hinted" folders have additional data in them
+      for assisting
+      <a href="https://en.wikipedia.org/wiki/ClearType">ClearType</a>,
+      the text rasterizer used by Microsoft Windows (and some Linux distributions.)
+      You want to use the "hinted" fonts only if you are targeting Windows users
+      <em>and</em> prefer the different look of these "hinted" fonts.
+      Additionally, hinting data makes the font files larger, so if you are
+      using Inter UI on websites, the extra size of these files is another
+      consideration to make.
+      <a href="https://www.typotheque.com/articles/hinting">
+      This article explains hinting at a greater length.</a>
+    </li>
+
+
+    <li class="q" id="faq-cdn">
+      How reliable are the fonts served from rsms.me/inter? Is it on a CDN?
+    </li>
+    <li class="a">
+      rsms.me/inter is backed by GitHub's server network and distributed
+      globally on the CloudFlare CDN, making usage of
+      <q>https://rsms.me/inter/inter-ui.css</q> and associated font
+      files very reliable and fast throughout the world. 
+    </li>
+
+    <li class="q" id="faq-contribute">
+      Can I help with improving Inter UI?
+    </li>
+    <li class="a">
+      Yes you can! Inter UI is an open-source project, meaning the source
+      code—or "source design" if you will—that is used to build the font files
+      <a href="https://github.com/rsms/inter">are freely available</a> to improve upon.
+      Font making requires a fair bit of technical work and
+      depending on what you'd like to do, some things might be more fun
+      depending on your technical skills.
+      The <a href="https://github.com/rsms/inter/blob/master/CONTRIBUTING.md">"Contributing" document</a> is a great place to start. The document outlines where
+      you can have the biggest impact, how things are setup and how to get
+      started.
+    </li>
+
+    <li class="q" id="faq-start-date">
+      This website claims work started in 2016, but the git repository's log says it started later?
+    </li>
+    <li class="a">
+      Inter UI was developed in an a private, internal git repository
+      starting in November 2016, prior to being published on August 22, 2017.
+      Between November 2016 and August 2017, there were
+      <num>2&#x2006;990&#x2006;150</num> line edits made across 247 versions.
+      The reason the public GitHub repository does not reflect this is the
+      fact that the project was initially only internal at the company where
+      the author works and had some sensitive information "checked in",
+      like AWS server details and internal author identity in
+      all commit messages. Maybe one day we can write an elaborate git
+      filter-branch program and convert the filter the old repository to make
+      it public, but what would be the point of that?&nbsp; :—)
+    </li>
+
+    <li class="q" id="faq-contact">
+      I've made a cool thing that uses Inter UI, can I share it with you?
+      &nbsp;<dem>or</dem>
+    </li>
+    <li class="q">
+      I have a different question
+    </li>
+    <li class="a">
+      Reach out on <a href="https://twitter.com/rsms">Twitter (@rsms)</a> or over <a href="mailto:rasmus@notion.se">email</a>
+    </li>
+
+
+  </ul>
+
+</div></div>
+
+
+<div class="row"><div>
+  — <a href="https://twitter.com/rsms" class="plain">@rsms</a>
+</div></div>
+
+<script>
+
+// FAQ anchors
+(function(){
+
+var av = document.querySelectorAll('ul.faq > li.q'), a, i, e, id, tn
+for (i = 0; i < av.length; ++i) {
+  e = av[i]
+  tn = document.createTextNode('Q  ')
+  e.insertBefore(tn, e.firstChild)
+  id = e.id
+  if (id) {
+    a = document.createElement('a')
+    // a.id = id
+    a.href = '#' + id
+    a.className = 'plain'
+    a.innerHTML = e.innerHTML
+    e.innerText = ''
+    e.appendChild(a)
+  }
+}
+av = document.querySelectorAll('ul.faq > li.a')
+for (i = 0; i < av.length; ++i) {
+  e = av[i]
+  tn = document.createTextNode('A  ')
+  e.insertBefore(tn, e.firstChild)
+}
+
+})();
+
+
+// dynamic metrics calculator
+(function(){
+
+var hiddenTextInput = $('#hidden-text-input')
+var fontSizeEl = $('#dynmet-font-size')
+var trackingEl = $('#dynmet-tracking')
+var unitEl = $('#dynmet-unit')
+
+var unitFormatters = [
+  ['em', 'em', function(fontSize, tracking) {
+    return tracking.toFixed(3)
+  }],
+  ['px', 'px', function(fontSize, tracking) {
+    return (fontSize * tracking).toFixed(1)
+  }],
+  ['%', 'percent', function(fontSize, tracking) {
+    return (tracking * 100).toFixed(1)
+  }],
+]
+var unitFormatter = unitFormatters[0][2]
+
+function updateTracking() {
+  var fontSize = parseFloat(fontSizeEl.value)
+  if (isNaN(fontSize) || fontSize < 1) {
+    fontSizeEl.value = fontSize = 1
+  } else if (fontSize > 999) {
+    fontSizeEl.value = fontSize = 999
+  }
+  var tracking = InterUIDynamicTracking(fontSize)
+  trackingEl.value = unitFormatter(fontSize, tracking)
+}
+
+function toggleUnit() {
+  var unit = unitEl.innerText
+  var u, x = -1
+  for (var i = 0; i < unitFormatters.length; i++) {
+    if (x == -1) {
+      u = unitFormatters[i]
+      if (u[0] == unit) {
+        x = i + 1
+        if (x == unitFormatters.length) {
+          x = 0
+        }
+        u = unitFormatters[x]
+      }
+    }
+    trackingEl.classList.remove(unitFormatters[i][1]) // class name
+  }
+  unit = u[0]
+  trackingEl.classList.add(u[1])
+  unitFormatter = u[2]
+  unitEl.innerText = unit
+  updateTracking()
+}
+
+function onPointerdownUnit(ev) {
+  toggleUnit()
+  if (ev) {
+    ev.preventDefault()
+    ev.stopPropagation()
+  }
+}
+
+function onPointerdownTracking(ev) {
+  if (ev) {
+    ev.preventDefault()
+    ev.stopPropagation()
+  }
+  hiddenTextInput.value = trackingEl.value + unitEl.innerText
+  hiddenTextInput.select()
+  document.execCommand("copy")
+  trackingEl.select()
+  HUDNotification.show('Copied to clipboard')
+}
+
+var passiveListener = { passive: true, capture: false }
+var activeListener = { capture: true }
+
+fontSizeEl.addEventListener('input', updateTracking, passiveListener)
+fontSizeEl.addEventListener('change', updateTracking, passiveListener)
+
+unitEl.addEventListener('pointerdown', onPointerdownUnit, activeListener)
+unitEl.addEventListener('mousedown', onPointerdownUnit, activeListener)
+
+trackingEl.addEventListener('pointerdown', onPointerdownTracking, activeListener)
+trackingEl.addEventListener('mousedown', onPointerdownTracking, activeListener)
+
+updateTracking()
+
+})();</script>

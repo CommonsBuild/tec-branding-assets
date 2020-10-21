@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="r.sups" format="2">
+  <advance width="872.0"/>
+  <unicode hex="02B3"/>
+  <outline>
+    <contour>
+      <point x="136.0" y="1024.0" type="line"/>
+      <point x="504.0" y="1024.0" type="line"/>
+      <point x="592.0" y="1556.0" type="line" smooth="yes"/>
+      <point x="613.0" y="1680.0"/>
+      <point x="713.0" y="1748.0"/>
+      <point x="796.0" y="1748.0" type="curve"/>
+      <point x="825.0" y="1748.0"/>
+      <point x="865.0" y="1736.0"/>
+      <point x="892.0" y="1720.0" type="curve"/>
+      <point x="1048.0" y="2024.0" type="line"/>
+      <point x="1017.0" y="2044.0"/>
+      <point x="965.0" y="2060.0"/>
+      <point x="908.0" y="2060.0" type="curve"/>
+      <point x="801.0" y="2060.0"/>
+      <point x="705.0" y="1996.0"/>
+      <point x="644.0" y="1852.0" type="curve"/>
+      <point x="632.0" y="1852.0" type="line"/>
+      <point x="664.0" y="2048.0" type="line"/>
+      <point x="308.0" y="2048.0" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>RMXScaler</key>
+      <dict>
+        <key>height</key>
+        <real>66.6</real>
+        <key>verticalShift</key>
+        <integer>1024</integer>
+        <key>weight</key>
+        <integer>-300</integer>
+        <key>width</key>
+        <real>66.6</real>
+      </dict>
+      <key>public.markColor</key>
+      <string>0,0.67,0.91,1</string>
+    </dict>
+  </lib>
+</glyph>

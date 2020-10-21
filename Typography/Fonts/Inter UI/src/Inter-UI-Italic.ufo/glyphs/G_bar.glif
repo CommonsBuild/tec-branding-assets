@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="Gbar" format="2">
+  <advance width="2092.0"/>
+  <unicode hex="01E4"/>
+  <guideline x="1156.0" y="744.0" angle="90.0"/>
+  <guideline x="764.0" y="148.0" angle="90.0"/>
+  <outline>
+    <contour>
+      <point x="1084.0" y="456.0" type="line"/>
+      <point x="1964.0" y="456.0" type="line"/>
+      <point x="1996.0" y="640.0" type="line"/>
+      <point x="1116.0" y="640.0" type="line"/>
+    </contour>
+    <component base="G"/>
+  </outline>
+</glyph>

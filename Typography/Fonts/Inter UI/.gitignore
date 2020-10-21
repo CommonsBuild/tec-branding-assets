@@ -1,0 +1,26 @@
+*.pyc
+*.pyo
+*.so
+*.ttx
+*.o
+*.d
+*.core
+*.obj
+*.exe
+*.diff
+_*.ignore
+*~
+.DS_Store
+nohup.out
+
+build
+/_*
+/docs/lab/_serve*
+/docs/lab/fonts
+/docs/_site
+
+src/FontInspector.html
+src/svg
+
+# ignore extra layers
+src/*.ufo/glyphs.*

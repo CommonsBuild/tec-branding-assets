@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="guillemetright" format="2">
+  <advance width="1796.0"/>
+  <unicode hex="00BB"/>
+  <guideline x="36.0" y="136.0" angle="0.0"/>
+  <guideline x="36.0" y="608.0" angle="0.0"/>
+  <outline>
+    <component base="guilsinglright" xOffset="168.0"/>
+    <component base="guilsinglright" xOffset="652.0"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.markColor</key>
+      <string>0.941,0.941,0.941,0.004</string>
+    </dict>
+  </lib>
+</glyph>

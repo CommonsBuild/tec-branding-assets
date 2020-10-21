@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="diamondwhite" format="2">
+  <advance width="3008.0"/>
+  <unicode hex="25C7"/>
+  <guideline x="536.0" y="768.0" angle="0.0"/>
+  <guideline x="1496.0" y="2072.0" angle="90.0"/>
+  <guideline x="1412.0" y="1056.0" angle="0.0"/>
+  <outline>
+    <contour>
+      <point x="2848.0" y="1056.0" type="line"/>
+      <point x="1512.0" y="2400.0" type="line"/>
+      <point x="160.0" y="1056.0" type="line"/>
+      <point x="1512.0" y="-288.0" type="line"/>
+    </contour>
+    <contour>
+      <point x="2248.0" y="1056.0" type="line"/>
+      <point x="1512.0" y="316.0" type="line"/>
+      <point x="768.0" y="1056.0" type="line"/>
+      <point x="1512.0" y="1796.0" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.hints</key>
+      <array>
+        <dict>
+          <key>horizontal</key>
+          <true/>
+          <key>options</key>
+          <integer>0</integer>
+          <key>origin</key>
+          <array>
+            <real>0.0</real>
+            <real>2.0</real>
+          </array>
+          <key>stem</key>
+          <integer>-2</integer>
+          <key>target</key>
+          <array>
+            <string>u</string>
+            <string>p</string>
+          </array>
+          <key>type</key>
+          <string>BottomGhost</string>
+        </dict>
+        <dict>
+          <key>horizontal</key>
+          <true/>
+          <key>options</key>
+          <integer>4</integer>
+          <key>origin</key>
+          <array>
+            <real>0.0</real>
+            <real>2.0</real>
+          </array>
+          <key>stem</key>
+          <integer>-2</integer>
+          <key>type</key>
+          <string>Anchor</string>
+        </dict>
+      </array>
+    </dict>
+  </lib>
+</glyph>

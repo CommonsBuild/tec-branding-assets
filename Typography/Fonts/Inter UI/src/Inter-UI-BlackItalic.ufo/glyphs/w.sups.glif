@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="w.sups" format="2">
+  <advance width="1540.0"/>
+  <unicode hex="02B7"/>
+  <outline>
+    <contour>
+      <point x="364.0" y="1024.0" type="line"/>
+      <point x="652.0" y="1024.0" type="line"/>
+      <point x="880.0" y="1504.0" type="line"/>
+      <point x="896.0" y="1504.0" type="line"/>
+      <point x="976.0" y="1024.0" type="line"/>
+      <point x="1264.0" y="1024.0" type="line"/>
+      <point x="1680.0" y="2048.0" type="line"/>
+      <point x="1316.0" y="2048.0" type="line"/>
+      <point x="1152.0" y="1508.0" type="line"/>
+      <point x="1136.0" y="1508.0" type="line"/>
+      <point x="1080.0" y="2048.0" type="line"/>
+      <point x="852.0" y="2048.0" type="line"/>
+      <point x="616.0" y="1504.0" type="line"/>
+      <point x="600.0" y="1504.0" type="line"/>
+      <point x="620.0" y="2048.0" type="line"/>
+      <point x="288.0" y="2048.0" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>RMXScaler</key>
+      <dict>
+        <key>height</key>
+        <real>66.6</real>
+        <key>verticalShift</key>
+        <integer>1024</integer>
+        <key>weight</key>
+        <integer>-300</integer>
+        <key>width</key>
+        <real>66.6</real>
+      </dict>
+      <key>public.markColor</key>
+      <string>0,0.67,0.91,1</string>
+    </dict>
+  </lib>
+</glyph>

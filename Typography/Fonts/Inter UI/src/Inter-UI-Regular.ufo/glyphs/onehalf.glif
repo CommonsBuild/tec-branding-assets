@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="onehalf" format="2">
+  <advance width="2636.0"/>
+  <unicode hex="00BD"/>
+  <outline>
+    <component base="fraction" xOffset="812.0"/>
+    <component base="one.numr" xOffset="24.0" yOffset="-64.0"/>
+    <component base="two.dnomf" xOffset="1520.0"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.componentsAlignment</key>
+      <array>
+        <integer>-1</integer>
+        <integer>0</integer>
+        <integer>1</integer>
+      </array>
+      <key>public.markColor</key>
+      <string>0.97,1,0,1</string>
+    </dict>
+  </lib>
+</glyph>
