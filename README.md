@@ -1,2 +1,2 @@
-# branding-assets
-TEC Branding assets. Logo, Mockups, Avatars, Banners, Graphics and other.
+# TEC Branding Assets
+Logo, Mockups, Avatars, Banners, Graphics and other.
